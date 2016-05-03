@@ -4,6 +4,10 @@ import { Link } from 'react-router';
 
 
 const LandingPage = React.createClass({
+  contextTypes: {
+  router: React.PropTypes.object.isRequired
+},
+
   render: function() {
     return (
       <div>
