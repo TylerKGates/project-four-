@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Post.delete_all
+
 Post.create!([
-  {id: 1, author: "ty", title: "First Post!", body: "First post, wat do??", like_count: 0},
-  {id: 2, author: "tyy", title: "Second Pooost", body: "sup, second post yall", like_count: 0},
-  {id: 3, author: "tyty", title: "suh dude", body: "hey.. video games roolz lol", like_count: 0}
+  {id: 1, title: "first", author: "tyman420", body: "first post. wassup?", like_count: 0},
+  {id: 2, title: "second", author: "tyty", body: "what video game we talking about", like_count: 0}
   ])

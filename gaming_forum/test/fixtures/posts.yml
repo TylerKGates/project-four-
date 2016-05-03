@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  author: MyString
   title: MyString
+  author: MyString
   body: MyText
   like_count: 1
 
 two:
-  author: MyString
   title: MyString
+  author: MyString
   body: MyText
   like_count: 1
