@@ -1,0 +1,65 @@
+import React from 'react';
+import NewLeaguePost from '../components/NewLeaguePostComp';
+import ajaxHelpers from '../utils/ajaxHelpers';
+
+const NewPostForm = React.createClass ({
+  getInitialState: function() {
+    return {
+      title: '',
+      body: '',
+      author: '',
+      like_count: 0
+    }
+  },
+  handleTitle: function(e) {
+    this.setState ({
+      title: e.target.value
+    })
+    console.log("title value:", e.target.value);
+  },
+  handleBody: function(e) {
+    this.setState ({
+      body: e.target.value
+    })
+    console.log("body value:", e.target.value);
+  },
+  handleAuthor: function(e) {
+    this.setState ({
+      author: e.target.value
+    })
+    console.log("author value:", e.target.value);
+  },
+  handleSubmitPost: function(e) {
+    this.setState ({
+      title: this.state.title,
+      body: this.state.body,
+      author: this.state.author
+    });
+    let post = {
+      title: this.state.title,
+      body: this.state.body,
+      author: this.state.author,
+      like_count: 0
+    };
+    console.log("let post looks like:", post);
+    ajaxHelpers.addPost(post)
+    .then(function(response) {
+      console.log("hi, response looks like:", response);
+    });
+  },
+  render: function() {
+    return (
+      <div>
+        <h1> hi this is where a new post gets created </h1>
+        <NewLeaguePost
+          onChangeTitle={this.handleTitle}
+          onChangeBody={this.handleBody}
+          onChangeAuthor={this.handleAuthor}
+          addPost={this.handleSubmitPost}
+         />
+      </div>
+    )
+  }
+})
+
+export default NewPostForm;

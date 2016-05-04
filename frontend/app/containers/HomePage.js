@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router';
+import ajaxHelpers from '../utils/ajaxHelpers'
 
 const HomePage = React.createClass({
+
   render: function() {
     return (
       <div>
