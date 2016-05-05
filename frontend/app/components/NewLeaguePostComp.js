@@ -15,7 +15,6 @@ const NewLeaguePost = React.createClass ({
     }
     return (
       <div>
-        <h1>hi this is where u can add new post </h1>
         <input style={titleArea}
           className=""
           placeholder="Title"
@@ -27,6 +26,13 @@ const NewLeaguePost = React.createClass ({
           className=""
           placeholder="Author"
           onChange={this.props.onChangeAuthor}
+          type="text"
+          />
+        <br /> <br />
+        <input style={titleArea}
+          className=""
+          placeholder="Category"
+          onChange={this.props.onChangeCategory}
           type="text"
           />
         <br /> <br />

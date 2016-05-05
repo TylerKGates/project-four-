@@ -1,7 +1,6 @@
 import React from 'react';
 import { Router, Route, IndexRoute, hashHistory} from 'react-router';
 import Main from '../components/Main';
-import LandingPage from '../containers/LandingPage';
 import HomePage from '../containers/HomePage';
 import ArkhamKnightPage from '../containers/ArkhamKnightPage';
 import CsGoPage from '../containers/CsGoPage';
@@ -11,7 +10,7 @@ import NewPostForm from '../containers/NewPostForm';
 const routes = (
   <Router history={hashHistory}>
   <Route path='/' component={Main}>
-  <IndexRoute component={LandingPage} />
+  <IndexRoute component={HomePage} />
   <Route path='HomePage' component={HomePage} />
   <Route path='ArkhamKnightPage' component={ArkhamKnightPage} />
   <Route path='CsGoPage' component={CsGoPage} />

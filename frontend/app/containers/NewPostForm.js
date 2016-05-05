@@ -8,6 +8,7 @@ const NewPostForm = React.createClass ({
       title: '',
       body: '',
       author: '',
+      category: '',
       like_count: 0
     }
   },
@@ -29,16 +30,24 @@ const NewPostForm = React.createClass ({
     })
     console.log("author value:", e.target.value);
   },
+  handleCategory: function(e) {
+    this.setState ({
+      category: e.target.value
+    })
+    console.log("category value:", e.target.value);
+  },
   handleSubmitPost: function(e) {
     this.setState ({
       title: this.state.title,
       body: this.state.body,
-      author: this.state.author
+      author: this.state.author,
+      category: this.state.category
     });
     let post = {
       title: this.state.title,
       body: this.state.body,
       author: this.state.author,
+      category: this.state.category,
       like_count: 0
     };
     console.log("let post looks like:", post);
@@ -50,11 +59,12 @@ const NewPostForm = React.createClass ({
   render: function() {
     return (
       <div>
-        <h1> hi this is where a new post gets created </h1>
+        <h1> Create a New Post </h1>
         <NewLeaguePost
           onChangeTitle={this.handleTitle}
           onChangeBody={this.handleBody}
           onChangeAuthor={this.handleAuthor}
+          onChangeCategory={this.handleCategory}
           addPost={this.handleSubmitPost}
          />
       </div>
