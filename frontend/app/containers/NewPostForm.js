@@ -51,7 +51,7 @@ const NewPostForm = React.createClass ({
       like_count: 0
     };
     console.log("let post looks like:", post);
-    ajaxHelpers.addPost(post)
+    ajaxHelpers.addNewPost(post)
     .then(function(response) {
       console.log("hi, response looks like:", response);
     });

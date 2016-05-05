@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @posts = Post.new( title: params[:title], author: params[:author], body: params[:body], like_count: params[:like_count])
+    @posts = Post.new( title: params[:title], author: params[:author], body: params[:body], category: params[:category], like_count: params[:like_count])
 
     if @posts.save
       render json: @posts.to_json, status: 201
