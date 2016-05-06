@@ -3,6 +3,7 @@ import {Link} from 'react-router';
 
 const LeagueThread = React.createClass({
   render: function() {
+    console.log("this.props is :", this.props.posts);
     return (
       <div>
       <Link to='NewPostForm'>

@@ -8,6 +8,7 @@ const HomePage = React.createClass({
   contextTypes: {
   router: React.PropTypes.object.isRequired
 },
+
   render: function() {
     return (
       <div>
@@ -22,8 +23,8 @@ const HomePage = React.createClass({
             <h2>Arkham Knight Threads</h2>
           </Link>
         </div>
-        <SignInComp />
         <SignUpComp />
+        <SignInComp />
       </div>
     );
   }

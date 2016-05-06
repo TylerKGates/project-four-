@@ -1,5 +1,6 @@
 import React from 'react';
 import auth from '../utils/auth';
+import SignInComp from './SignInComp';
 
 
 const SignUpComp = React.createClass ({

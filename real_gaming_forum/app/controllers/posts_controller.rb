@@ -4,16 +4,20 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    render json: @posts.to_json
   end
 
   def create
-    @posts = Post.new( title: params[:title], author: params[:author], body: params[:body], category: params[:category], like_count: params[:like_count])
+    puts current_user.id
+    @posts = Post.new(  title: params[:title], author: params[:author], body: params[:body], category: params[:category], like_count: params[:like_count])
 
     if @posts.save
+      puts @posts
       render json: @posts.to_json, status: 201
     else
       render json: {error: "Post could not be created."}, status: 422
     end
   end
+
 
 end

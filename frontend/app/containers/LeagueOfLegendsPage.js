@@ -16,7 +16,7 @@ const LeagueOfLegendsPage = React.createClass({
       .then(function(response) {
         console.log("response is: ", response.data);
         this.setState({
-          posts: response.data.post
+          posts: response.data
         });
       }.bind(this))
     },

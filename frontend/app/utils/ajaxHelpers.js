@@ -6,21 +6,23 @@ const helpers = {
   getPosts: function() {
     return axios.get('http://localhost:3000/posts.json')
   },
-  addPost: function(post) {
-    return axios.post('http://localhost:3000/posts.json', post)
-  },
-  addNewPost: function(post) {
+  // addPost: function(post) {
+  //   return axios.post('http://localhost:3000/posts.json', post)
+  // },
+  addPost: function(post, afterAjaxFxn) {
     const uid = localStorage.uid;
     const accessToken = localStorage.accessToken;
     const client = localStorage.client;
 
-    axios.post('http://localhost:3000/posts.json',  {
+    axios.post('http://localhost:3000/posts.json',
+      post,
+    {
       headers: {
         'uid': uid,
         'access-token': accessToken,
         'client': client
       }
-    }, post)
+    })
     .then(function(response) {
       console.log("success, response here:", response);
       if (afterAjaxFxn) {
