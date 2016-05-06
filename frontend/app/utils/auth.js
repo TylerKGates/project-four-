@@ -59,6 +59,9 @@ module.exports = {
       }
     });
   },
+  logout(afterLogoutFxn) {
+    
+  },
   loggedIn() {
   return (!!localStorage.uid && !!localStorage.accessToken && !!localStorage.client);
 },
