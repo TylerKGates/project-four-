@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def create
     puts current_user.id
-    @posts = Post.new(  title: params[:title], author: params[:author], body: params[:body], category: params[:category], like_count: params[:like_count])
+    @posts = Post.new( title: params[:title], author: params[:author], body: params[:body], category: params[:category], like_count: params[:like_count])
 
     if @posts.save
       puts @posts
