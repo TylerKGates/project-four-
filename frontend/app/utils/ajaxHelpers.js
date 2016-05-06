@@ -6,9 +6,9 @@ const helpers = {
   getPosts: function() {
     return axios.get('http://localhost:3000/posts.json')
   },
-  // addPost: function(post) {
-  //   return axios.post('http://localhost:3000/posts.json', post)
-  // },
+  deletePost: function(id) {
+    return axios.delete('http://localhost:3000/:id.json')
+  },
   addPost: function(post, afterAjaxFxn) {
     const uid = localStorage.uid;
     const accessToken = localStorage.accessToken;

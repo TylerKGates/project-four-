@@ -5,21 +5,20 @@ import LeagueThreadComp from '../components/LeagueThreadComp'
 
 const LeagueOfLegendsPage = React.createClass({
 
-    getInitialState: function() {
-      return {
+  getInitialState: function() {
+    return {
         posts: []
       }
     },
 
-    componentDidMount: function() {
-      ajaxHelpers.getPosts()
-      .then(function(response) {
-        console.log("response is: ", response.data);
-        this.setState({
-          posts: response.data
-        });
-      }.bind(this))
-    },
+  componentDidMount: function() {
+    ajaxHelpers.getPosts()
+    .then(function(response) {
+      this.setState({
+        posts: response.data
+      });
+    }.bind(this))
+  },
 
   render: function() {
     let leagueLogo = 'https://signup.na.leagueoflegends.com/theme/signup_new_theme/img/logo-lol-smaller.png';
