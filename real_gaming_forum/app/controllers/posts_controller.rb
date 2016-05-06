@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.reverse
     render json: @posts.to_json
   end
 
@@ -19,5 +19,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @posts = Post.find(params[:id])
+    if @posts.destroy
+      render json: {}, status: 200
+    else
+      render json: {error: "post too good, sry i dont wanna delete"}, status: 422
+    end
+  end
 
 end
