@@ -11,7 +11,6 @@ const SignUpComp = React.createClass ({
       return (
         <div>
           <p>logged in :p</p>
-          <button onClick={this.props.onLogout}>Logout</button>
         </div>
       )
     }
