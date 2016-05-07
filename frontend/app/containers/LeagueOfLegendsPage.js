@@ -21,24 +21,55 @@ const LeagueOfLegendsPage = React.createClass({
   },
 
   render: function() {
-    let leagueLogo = 'https://signup.na.leagueoflegends.com/theme/signup_new_theme/img/logo-lol-smaller.png';
 
-    let leagueStyle = {
-      backgroundImage: 'url(' + leagueLogo + ')',
-      backgroundSize: 'cover',
-      width: '600px',
-      height: '300px'
+    let styles = {
+      main: {
+        color: '#333',
+        textDecoration: 'none',
+        fontFamily: 'sans-serif',
+      },
+      title: {
+        textAlign: 'center'
+      },
+      button: {
+        backgroundColor: 'blue'
+      },
+      button: {
+        color: '#fff',
+        padding: '20px',
+        backgroundColor: 'deepPink',
+        border: 0,
+        borderRadius: '10px',
+        margin: '5px'
+
+      },
+      buttonContainer: {
+        display: 'flex',
+        justifyContent: 'center'
+      },
+      imageStyle: {
+        backgroundImage: 'url(http://b68389.medialib.glogster.com/media/82d078b90fcb74620555b2422fd2eee3e7e39c82c03ce69d5ef6d8517c3ea1d1/league-of-legends-logo.png)',
+        backgroundSize: 'contain',
+        width: '500px',
+        backgroundRepeat: 'no-repeat',
+        height: '180px',
+        margin: 'auto',
+      }
     }
 
+    let leagueLogo = '';
+
+
     return (
-      <div>
-        <h1 style={leagueStyle}></h1>
-        <div className='leagueNav'>
+      <div style={styles.main}>
+        <div style={styles.imageStyle} />
+
+        <div className='leagueNav' style={styles.buttonContainer}>
           <Link to='ArkhamKnightPage'>
-            <h3>Batman Threads</h3>
+            <button style={styles.button}>Batman Threads</button>
           </Link>
           <Link to='CsGoPage'>
-            <h3>CS:GO Threads</h3>
+            <button style={styles.button}>CS:GO Threads</button>
           </Link>
         </div>
       <LeagueThreadComp posts={this.state.posts} />

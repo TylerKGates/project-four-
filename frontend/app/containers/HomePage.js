@@ -3,7 +3,8 @@ import {Link} from 'react-router';
 import ajaxHelpers from '../utils/ajaxHelpers';
 import SignInComp from '../components/SignInComp';
 import SignUpComp from '../components/SignUpComp';
-import auth from '../utils/auth'
+import auth from '../utils/auth';
+import LogoutComp from '../components/LogoutComp'
 
 const HomePage = React.createClass({
   contextTypes: {
@@ -67,22 +68,65 @@ const HomePage = React.createClass({
     }.bind(this);
     auth.login(this.state.email, this.state.password, callbackAfterLogin);
   },
+  handleLogout: function() {
+    var callbackAfterLogout = function(success) {
+      if(success) {
+        this.setState({ successMsg: "successfully logged out :p" });
+      }
+    }.bind(this);
+    auth.logout(callbackAfterLogout)
+  },
 
   render: function() {
 
+    let styles = {
+      main: {
+        color: '#333',
+        textDecoration: 'none',
+        fontFamily: 'sans-serif',
+      },
+      title: {
+        textAlign: 'center'
+      },
+      button: {
+        backgroundColor: 'blue'
+      },
+      button: {
+        color: '#fff',
+        padding: '20px',
+        backgroundColor: 'deepPink',
+        border: 0,
+        borderRadius: '10px',
+        margin: '5px'
+
+      },
+      buttonContainer: {
+        display: 'flex',
+        justifyContent: 'center'
+      }
+    }
+
     return (
-      <div>
-        <div className="threadLinks">
+      <div style={styles.main}>
+
+        <div style={styles.title}>
+          <h1>CRAPP-Y GAMING FORUM</h1>
+        </div>
+
+        <div className="threadLinks" style={styles.buttonContainer}>
           <Link to='LeagueOfLegendsPage'>
-            <h2>League Threads</h2>
+            <button style={styles.button}>League Threads</button>
           </Link>
+          <br />
           <Link to='CsGoPage'>
-            <h2>CS:GO Threads</h2>
+            <button style={styles.button}>CS:GO Threads</button>
           </Link>
+          <br />
           <Link to='ArkhamKnightPage'>
-            <h2>Arkham Knight Threads</h2>
+            <button style={styles.button}>Arkham Knight Threads</button>
           </Link>
         </div>
+
         <SignInComp
           onChangeEmail={this.handleEmail}
           onChangePass={this.handlePass}
@@ -93,6 +137,7 @@ const HomePage = React.createClass({
           onChangePass={this.handleNewPassword}
           onChangePassCon={this.handlePasswordConfirmation}
           onSubmit={this.handleSignup}
+          onLogout={this.handleLogout}
           />
       </div>
     );

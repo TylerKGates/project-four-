@@ -7,7 +7,7 @@ const helpers = {
     return axios.get('http://localhost:3000/posts.json')
   },
   deletePost: function(id) {
-    return axios.delete('http://localhost:3000/:id.json')
+    return axios.delete('http://localhost:3000/:id.json' )
   },
   addPost: function(post, afterAjaxFxn) {
     const uid = localStorage.uid;

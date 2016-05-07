@@ -60,7 +60,32 @@ module.exports = {
     });
   },
   logout(afterLogoutFxn) {
-    
+    let uid = localStorage.uid;
+    let client = localStorage.client;
+    let token = localStorage.accessToken;
+
+    axios.delete(ajaxHelpers.baseUrl + '/auth/sign_out', {
+      headers: {
+        'uid': uid,
+        'client': client,
+        'access-token': token
+      }
+    })
+    .then(function(response) {
+      delete localStorage.accessToken
+      delete localStorage.uid
+      delete localStorage.client
+
+      if(afterLogoutFxn) {
+        afterLogoutFxn(true)
+      }
+    })
+    .catch(function(response) {
+      console.log("there was an error:", response);
+      if(afterLogoutFxn) {
+        afterLogoutFxn(false)
+      }
+    }); 
   },
   loggedIn() {
   return (!!localStorage.uid && !!localStorage.accessToken && !!localStorage.client);

@@ -25,13 +25,54 @@ const LeagueThread = React.createClass({
     return axios.delete('http://localhost:3000/posts' + id)
   },
   render: function() {
+    let styles = {
+      main: {
+        color: '#333',
+        textDecoration: 'none',
+        fontFamily: 'sans-serif',
+      },
+      title: {
+        textAlign: 'center'
+      },
+      button: {
+        backgroundColor: 'blue'
+      },
+      button: {
+        color: '#fff',
+        padding: '20px',
+        backgroundColor: 'deepPink',
+        border: 0,
+        borderRadius: '10px',
+        margin: '5px'
+
+      },
+      buttonContainer: {
+        display: 'flex',
+        justifyContent: 'center'
+      },
+      imageStyle: {
+        backgroundImage: 'url(http://b68389.medialib.glogster.com/media/82d078b90fcb74620555b2422fd2eee3e7e39c82c03ce69d5ef6d8517c3ea1d1/league-of-legends-logo.png)',
+        backgroundSize: 'contain',
+        width: '500px',
+        backgroundRepeat: 'no-repeat',
+        height: '180px',
+        margin: 'auto',
+      },
+      postStyle: {
+        textAlign: 'center',
+        backgroundColor: 'rgba(0,0,0,0.3)',
+        border: '1px solid black',
+        borderRadius: '30px',
+        listStyleType: 'none'
+      }
+    }
     console.log("this.props is :", this.props.posts);
     return (
       <div>
       <Link to='NewPostForm'>
         <button>Add New Post</button>
       </Link>
-        <ul>
+        <ul style={styles.postStyle}>
           {
             this.props.posts.map((posts, index) => {
               return <li key={posts.id}>

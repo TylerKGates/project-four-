@@ -1,5 +1,6 @@
 import React from 'react';
 import ajaxHelpers from '../utils/ajaxHelpers';
+import {Link} from 'react-router';
 
 const NewLeaguePost = React.createClass ({
   render: function() {
@@ -43,7 +44,9 @@ const NewLeaguePost = React.createClass ({
           type="text"
           />
         <br /> <br />
-        <button onClick={this.props.addPost}>Submit</button>
+        <Link to='LeagueOfLegendsPage'>
+          <button onClick={this.props.addPost}>Submit</button>
+        </Link>
       </div>
     )
   }
