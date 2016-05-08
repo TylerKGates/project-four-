@@ -79,8 +79,6 @@ const LeagueThread = React.createClass({
                 <h3>Title: {posts.title}</h3>
                 <h3>Author: {posts.author}</h3>
                 <h3>Body: {posts.body}</h3>
-                <h3>Likes: {posts.like_count}</h3>
-                <button onClick={this.deletePost}>Delete Post</button>
                 <hr />
               </li>
             })
