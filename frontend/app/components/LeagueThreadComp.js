@@ -34,8 +34,13 @@ const LeagueThread = React.createClass({
       title: {
         textAlign: 'center'
       },
-      button: {
-        backgroundColor: 'blue'
+      addNewButton: {
+        color: '#fff',
+        padding: '20px',
+        backgroundColor: 'deepPink',
+        border: 0,
+        borderRadius: '10px',
+        margin: '5px',
       },
       button: {
         color: '#fff',
@@ -63,14 +68,14 @@ const LeagueThread = React.createClass({
         backgroundColor: 'rgba(0,0,0,0.3)',
         border: '1px solid black',
         borderRadius: '30px',
-        listStyleType: 'none'
+        listStyleType: 'none',
       }
     }
     console.log("this.props is :", this.props.posts);
     return (
       <div>
       <Link to='NewPostForm'>
-        <button>Add New Post</button>
+        <button style={styles.addNewButton}>Add New Post</button>
       </Link>
         <ul style={styles.postStyle}>
           {

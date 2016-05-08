@@ -28,4 +28,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def update
+    @posts = Post.find(params[:id])
+    if @posts.update_attributes(like_count: params[:like_count])
+    else
+      render json: {error: "can't like this post."}, status: 422
+    end
+  end
+
 end

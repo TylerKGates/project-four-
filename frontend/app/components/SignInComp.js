@@ -10,7 +10,6 @@ const SignInComp = React.createClass({
     if (isLoggedIn) {
       return (
         <div>
-          <p>logged in :p</p>
         </div>
       )
     }

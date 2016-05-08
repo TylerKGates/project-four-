@@ -139,6 +139,9 @@ const HomePage = React.createClass({
           onSubmit={this.handleSignup}
           onLogout={this.handleLogout}
           />
+        <LogoutComp
+          onLogout={this.handleLogout}
+          />
       </div>
     );
   }
